@@ -33,7 +33,9 @@
 			Postal code : <input type="text" value="" name="cep">
 			<button class="waves-effect waves-light btn" type="submit">Add address</button>
 		</form>
+		<th:block th:include="mensagemValidacao"></th:block>
 	</div>
+		
 	<div class="container" th:each="address : ${addressModel}">
 		<div class="row">
 			<div class="input-field col s6">

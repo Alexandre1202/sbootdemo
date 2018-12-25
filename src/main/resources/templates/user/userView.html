@@ -19,7 +19,9 @@
 	<form class="container" method="post">
 	
 		<h1>User view</h1>
-		Full name : <input type="text" value="" name="fullName" />
+        <a href="/users" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>User list</a>
+		
+		<p>Full name : <input type="text" value="" name="fullName" /></p>
 		<div class="row">
 			<div class="input-field col s6">
 				User name : <input type="text" value="" name="userName" /> 
@@ -27,8 +29,9 @@
 			<div class="input-field col s6">
 				e-mail    : <input type="email" value="" name="email" />
 			</div>
-			<button type="submit">Salvar</button>
+			<button class="waves-effect waves-light btn" type="submit">Save</button>
 		</div>
+		<th:block th:include="mensagemValidacao"></th:block>
 	</form>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
