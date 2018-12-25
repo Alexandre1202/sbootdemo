@@ -12,21 +12,27 @@
 	href="materialize/css/materialize.min.css" media="screen,projection" />
 	<!--Let browser know website is optimized for mobile-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<link rel="stylesheet" href="style/style.css" />
 </head>
 
 <body>
+	<header>
+	  <nav>
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo">User address's</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="/users" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>User list</a></li>
+	      </ul>
+	    </div>
+	  </nav>	
+	</header>
 
-	<div class="container">	
-		<h1>User</h1>
-		<h3>
-			<a href="/users" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>User list</a>
-		</h3>
-		<div th:each="user : ${userModel}" class="container">
-			<div class="row">
-				<p>User name : <span th:text="${user.userName}"></span></p>
-				<p>Full name : <span th:text="${user.fullName}"></span></p>
-				<p>e-mail : <span th:text="${user.email}"></span></p>
-			</div>
+	<div class="container userData">	
+		<div th:each="user : ${userModel}">
+			<p>User name : <span th:text="${user.userName}"></span></p>
+			<p>Full name : <span th:text="${user.fullName}"></span></p>
+			<p>e-mail : <span th:text="${user.email}"></span></p>
 		</div>
 		<form method="post">
 			Address : <input type="text" value="" name="address">
@@ -35,17 +41,21 @@
 		</form>
 		<th:block th:include="mensagemValidacao"></th:block>
 	</div>
-		
-	<div class="container" th:each="address : ${addressModel}">
-		<div class="row">
-			<div class="input-field col s6">
-				<p><span th:text="${address.address}"></span></p>
-			</div>
-			<div class="input-field col s6">
-				<p><span th:text="${address.cep}"></span></p>
-			</div>
-		</div>
-	</div>
+	
+	<table class="container">
+		<thead>
+			<tr>
+				<td>Address</td>
+				<td>Postal code</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="address : ${addressModel}">
+				<td><span th:text="${address.address}"></span></td>
+				<td><span th:text="${address.cep}"></span></td>
+			</tr>
+		</tbody>
+	</table>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

@@ -72,4 +72,11 @@ public class UserController {
 		return "redirect:/{id}";
 	}
 
+//	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping("/delete")
+	public String userDel(long id) {
+		UserModel userModel = userRepository.findById(id);
+		userRepository.delete(userModel);
+		return "redirect:/users";
+	}
 }
