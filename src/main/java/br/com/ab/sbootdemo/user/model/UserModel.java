@@ -1,11 +1,15 @@
 package br.com.ab.sbootdemo.user.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class UserModel implements Serializable{
@@ -16,9 +20,15 @@ public class UserModel implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@NotEmpty
 	private String userName;
+	@NotEmpty
 	private String fullName;
+	@NotEmpty
 	private String email;
+	
+	@OneToMany
+	private List<AddressModel> addressModel; 
 	
 	public long getId() {
 		return id;
@@ -43,6 +53,12 @@ public class UserModel implements Serializable{
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public List<AddressModel> getAddressModel() {
+		return addressModel;
+	}
+	public void setAddressModel(List<AddressModel> addressModel) {
+		this.addressModel = addressModel;
 	}
 
 }

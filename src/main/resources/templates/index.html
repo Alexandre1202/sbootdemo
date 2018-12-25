@@ -35,7 +35,7 @@
 				<tr th:each="user : ${users}">
 					<div class="row">
 						<td>						
-							<a th:href="${(#mvc.url('UC#userDetail').arg(0, user.id)).build()}">
+							<a th:href="${(#mvc.url('UC#userDetailed').arg(0, user.id)).build()}">
 								<span th:text="${user.userName}"></span>
 							</a>
 						</td>
