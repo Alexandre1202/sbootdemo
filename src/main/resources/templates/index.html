@@ -47,7 +47,7 @@
 					<span th:text="${user.email}"></span>
 				</td>
 				<td>
-					<a href="${(#mvc.url('UC#delete').arg(0, user.id)).build()}" 
+					<a th:href="${(#mvc.url('UC#userDel').arg(0, user.id)).build()}" 
 						class="waves-effect waves-light btn-small">
 						<i class="material-icons center">delete</i>
 					</a>

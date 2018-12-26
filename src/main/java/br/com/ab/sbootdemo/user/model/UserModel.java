@@ -3,6 +3,7 @@ package br.com.ab.sbootdemo.user.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +28,7 @@ public class UserModel implements Serializable{
 	@NotEmpty
 	private String email;
 	
-	@OneToMany
+	@OneToMany(mappedBy="userModel", orphanRemoval=true, cascade=CascadeType.PERSIST)
 	private List<AddressModel> addressModel; 
 	
 	public long getId() {
